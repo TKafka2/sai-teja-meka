@@ -5,6 +5,36 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sai Teja Meka</title>
 <meta name="description" content="Sai Teja Meka — PhD candidate in cancer biology at the University of Iowa. Research focus, experience, publications, and lab skills.">
+<link rel="canonical" href="https://saiteja-meka.github.io/">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Sai Teja Meka">
+<meta property="og:description" content="PhD candidate in cancer biology at the University of Iowa. Research focus, experience, publications, and lab skills.">
+<meta property="og:url" content="https://saiteja-meka.github.io/">
+<meta property="og:site_name" content="Sai Teja Meka">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sai Teja Meka">
+<meta name="twitter:description" content="PhD candidate in cancer biology at the University of Iowa. Research focus, experience, publications, and lab skills.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sai Teja Meka",
+  "url": "https://saiteja-meka.github.io/",
+  "jobTitle": "Ph.D. Candidate, Cancer Biology",
+  "affiliation": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of Iowa, Roy J. and Lucille A. Carver College of Medicine"
+  },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Manipal College of Pharmaceutical Sciences, MAHE" },
+    { "@type": "CollegeOrUniversity", "name": "Acharya Nagarjuna University College of Pharmaceutical Sciences" }
+  ],
+  "sameAs": ["https://www.linkedin.com/in/sai-teja-meka"]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -83,6 +113,12 @@
 
   .wrap{ max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
 
+  .desktop-only{ display: none; }
+  @media (min-width: 960px){
+    .mobile-only{ display: none; }
+    .desktop-only{ display: block; }
+  }
+
   /* ---------- nav ---------- */
   nav.top{
     position: sticky; top: 0; z-index: 20;
@@ -91,13 +127,9 @@
     border-bottom: 1px solid var(--line);
   }
   nav.top .wrap{
-    display: flex; align-items: center; justify-content: space-between;
+    display: flex; align-items: center; justify-content: flex-end;
     padding-top: 0.85rem; padding-bottom: 0.85rem;
     gap: 1rem; flex-wrap: wrap;
-  }
-  nav.top .mark{
-    font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.06em;
-    color: var(--ink-soft); text-decoration: none;
   }
   nav.top .links{ display: flex; gap: 1.25rem; flex-wrap: wrap; }
   nav.top .links a{
@@ -235,13 +267,55 @@
     .hero-meta{ font-size: 0.76rem; }
     ul.plain li{ flex-direction: column; gap: 0.2rem; }
   }
+
+  /* ---------- desktop sidebar layout ---------- */
+  /* placed last so its rules win over same-specificity component rules above */
+  @media (min-width: 960px){
+    .layout{
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 4rem;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      align-items: start;
+    }
+    .layout > header.hero{
+      padding: 3.5rem 0;
+      position: sticky; top: 1.5rem;
+      max-height: calc(100vh - 3rem);
+      overflow-y: auto;
+    }
+    .layout > header.hero > .wrap,
+    .layout > main.wrap{
+      max-width: none; margin: 0; padding: 0;
+    }
+    .side-nav{ display: flex; flex-direction: column; gap: 0.7rem; margin-top: 2.4rem; }
+    .side-nav a{
+      font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.03em;
+      text-transform: uppercase; text-decoration: none; color: var(--ink-soft);
+      border-left: 2px solid var(--line); padding-left: 0.7rem;
+    }
+    .side-nav a:hover{ color: var(--accent-ink); border-left-color: var(--accent); }
+    .pk-curve{ margin-top: 2rem; }
+
+    p.thesis, p.lede{ max-width: 68ch; }
+    .entry li, .entry p.detail{ max-width: 66ch; }
+
+    #publications .pubs-grid{
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    #publications .pubs-grid .pub{ margin-bottom: 0; }
+    .skills-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.5rem; }
+    ul.plain{ column-count: 2; column-gap: 2.5rem; }
+    ul.plain li{ break-inside: avoid; }
+  }
 </style>
 </head>
 <body>
 
-<nav class="top">
+<nav class="top mobile-only">
   <div class="wrap">
-    <a class="mark" href="#top">S. T. MEKA</a>
     <div class="links">
       <a href="#research">Research</a>
       <a href="#experience">Experience</a>
@@ -253,6 +327,7 @@
 </nav>
 
 <div id="top"></div>
+<div class="layout">
 <header class="hero">
   <div class="wrap">
     <p class="eyebrow">Ph.D. Candidate · Cancer Biology</p>
@@ -268,6 +343,14 @@
       <a class="btn primary" href="https://www.linkedin.com/in/sai-teja-meka" target="_blank" rel="noopener">Connect on LinkedIn</a>
       <a class="btn ghost" href="#publications">Read the publications</a>
     </div>
+
+    <nav class="side-nav desktop-only" aria-label="Section navigation">
+      <a href="#research">Research</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
     <svg class="pk-curve" viewBox="0 0 620 180" role="img" aria-label="Illustrative concentration-time curve">
       <path class="axis" d="M40 20 L40 150 L600 150" />
@@ -335,6 +418,7 @@
   <section id="publications">
     <h2 class="section-title">Publications</h2>
 
+    <div class="pubs-grid">
     <div class="pub">
       <div class="pub-top"><span class="pub-year">2023</span></div>
       <p class="pub-title">Novel HDAC inhibitors provide neuroprotection in MPTP-induced Parkinson's disease model of rats</p>
@@ -366,11 +450,13 @@
       <p class="pub-journal">Journal of Cell Communication and Signaling, 17(3), 673–688</p>
       <a class="pub-doi" href="https://doi.org/10.1007/s12079-022-00703-0" target="_blank" rel="noopener">doi.org/10.1007/s12079-022-00703-0</a>
     </div>
+    </div>
   </section>
 
   <section id="skills">
     <h2 class="section-title">Techniques &amp; skills</h2>
 
+    <div class="skills-grid">
     <div class="panel-group">
       <div class="panel-label">In vivo &amp; preclinical</div>
       <div class="chips">
@@ -415,6 +501,7 @@
         <span class="chip">Kannada — conversant</span>
       </div>
     </div>
+    </div>
   </section>
 
   <section id="presentations">
@@ -443,6 +530,7 @@
   </section>
 
 </main>
+</div>
 
 <footer id="contact">
   <div class="wrap">
