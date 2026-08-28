@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sai Teja Meka</title>
+<meta name="description" content="Sai Teja Meka — PhD candidate in cancer biology at the University of Iowa. Research focus, experience, publications, and lab skills.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper: #F1F3EE;
+    --paper-alt: #E7EAE1;
+    --paper-card: #FBFCF9;
+    --ink: #1E2A22;
+    --ink-soft: #52604F;
+    --ink-faint: #7C8977;
+    --accent: #B8752E;
+    --accent-ink: #7A4C1B;
+    --accent-soft: #E9D3B4;
+    --line: #D3D8CA;
+
+    --font-display: 'IBM Plex Serif', Georgia, 'Times New Roman', serif;
+    --font-body: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --space-1: 0.5rem;
+    --space-2: 1rem;
+    --space-3: 1.75rem;
+    --space-4: 2.75rem;
+    --space-5: 4.5rem;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper: #12160F;
+      --paper-alt: #1A2016;
+      --paper-card: #181D14;
+      --ink: #E8EBE1;
+      --ink-soft: #AAB5A2;
+      --ink-faint: #74806E;
+      --accent: #D89A50;
+      --accent-ink: #F0B978;
+      --accent-soft: #3A2E1B;
+      --line: #2C3326;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper: #12160F;
+    --paper-alt: #1A2016;
+    --paper-card: #181D14;
+    --ink: #E8EBE1;
+    --ink-soft: #AAB5A2;
+    --ink-faint: #74806E;
+    --accent: #D89A50;
+    --accent-ink: #F0B978;
+    --accent-soft: #3A2E1B;
+    --line: #2C3326;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){ html{ scroll-behavior: auto; } }
+
+  body{
+    margin: 0;
+    background-color: var(--paper);
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 27px, color-mix(in srgb, var(--line) 55%, transparent) 27px, color-mix(in srgb, var(--line) 55%, transparent) 28px),
+      repeating-linear-gradient(90deg, transparent, transparent 27px, color-mix(in srgb, var(--line) 55%, transparent) 27px, color-mix(in srgb, var(--line) 55%, transparent) 28px);
+    background-attachment: local;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16.5px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: var(--accent-ink); }
+  a:focus-visible, button:focus-visible{ outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .wrap{ max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* ---------- nav ---------- */
+  nav.top{
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav.top .wrap{
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 0.85rem; padding-bottom: 0.85rem;
+    gap: 1rem; flex-wrap: wrap;
+  }
+  nav.top .mark{
+    font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.06em;
+    color: var(--ink-soft); text-decoration: none;
+  }
+  nav.top .links{ display: flex; gap: 1.25rem; flex-wrap: wrap; }
+  nav.top .links a{
+    font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.02em;
+    color: var(--ink-soft); text-decoration: none; text-transform: uppercase;
+  }
+  nav.top .links a:hover{ color: var(--accent-ink); }
+
+  /* ---------- hero ---------- */
+  header.hero{ padding: var(--space-5) 0 var(--space-4); position: relative; }
+  .eyebrow{
+    font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.09em;
+    text-transform: uppercase; color: var(--accent-ink); margin: 0 0 0.9rem;
+  }
+  h1.name{
+    font-family: var(--font-display); font-weight: 600;
+    font-size: clamp(2.4rem, 6vw, 3.6rem); line-height: 1.05;
+    margin: 0 0 0.6rem; text-wrap: balance; letter-spacing: -0.01em;
+  }
+  p.role{
+    font-family: var(--font-display); font-style: italic; font-weight: 400;
+    font-size: clamp(1.05rem, 2.4vw, 1.3rem); color: var(--ink-soft);
+    margin: 0 0 1.6rem; max-width: 42ch;
+  }
+  p.thesis{ max-width: 58ch; font-size: 1.05rem; color: var(--ink); margin: 0 0 1.8rem; }
+  .hero-meta{
+    display: flex; flex-wrap: wrap; gap: 0.5rem 1.4rem;
+    font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink-soft);
+    margin-bottom: 2rem; font-variant-numeric: tabular-nums;
+  }
+  .hero-meta span::before{ content: "· "; color: var(--ink-faint); }
+  .hero-meta span:first-child::before{ content: ""; }
+  .hero-cta{ display: flex; gap: 0.9rem; flex-wrap: wrap; }
+  .btn{
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-family: var(--font-body); font-weight: 600; font-size: 0.92rem;
+    padding: 0.65rem 1.15rem; border-radius: 3px; text-decoration: none;
+    border: 1px solid transparent; transition: transform 0.15s ease, background 0.15s ease;
+  }
+  .btn.primary{ background: var(--accent); color: #fff; }
+  .btn.primary:hover{ transform: translateY(-1px); }
+  .btn.ghost{ border-color: var(--line); color: var(--ink); }
+  .btn.ghost:hover{ border-color: var(--accent); color: var(--accent-ink); }
+
+  .pk-curve{ width: 100%; max-width: 620px; height: auto; margin-top: 2.4rem; display: block; }
+  .pk-curve path.curve{
+    fill: none; stroke: var(--accent); stroke-width: 2; opacity: 0.75;
+    stroke-dasharray: 900; stroke-dashoffset: 900;
+    animation: draw 2.2s ease-out 0.2s forwards;
+  }
+  .pk-curve path.axis{ stroke: var(--line); stroke-width: 1; fill: none; }
+  .pk-curve circle{ fill: var(--accent); opacity: 0; animation: fadeIn 0.6s ease-out 2.1s forwards; }
+  @keyframes draw{ to{ stroke-dashoffset: 0; } }
+  @keyframes fadeIn{ to{ opacity: 1; } }
+  @media (prefers-reduced-motion: reduce){
+    .pk-curve path.curve{ animation: none; stroke-dashoffset: 0; }
+    .pk-curve circle{ animation: none; opacity: 1; }
+  }
+
+  /* ---------- sections ---------- */
+  section{ padding: var(--space-4) 0; border-top: 1px solid var(--line); }
+  section.first{ border-top: none; padding-top: 0; }
+  h2.section-title{
+    font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--ink-faint); margin: 0 0 1.8rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  h2.section-title::after{ content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  p.lede{ max-width: 62ch; font-size: 1.02rem; }
+
+  /* ---------- timeline ---------- */
+  .timeline{ position: relative; padding-left: 1.6rem; }
+  .timeline::before{ content: ""; position: absolute; left: 4px; top: 0.4rem; bottom: 0.4rem; width: 1px; background: var(--line); }
+  .entry{ position: relative; margin-bottom: 2.1rem; }
+  .entry:last-child{ margin-bottom: 0; }
+  .entry::before{
+    content: ""; position: absolute; left: -1.6rem; top: 0.35rem;
+    width: 9px; height: 9px; border-radius: 50%; background: var(--accent);
+    box-shadow: 0 0 0 3px var(--paper);
+  }
+  .entry .when{
+    font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent-ink);
+    text-transform: uppercase; letter-spacing: 0.04em; font-variant-numeric: tabular-nums;
+  }
+  .entry h3{ font-family: var(--font-display); font-size: 1.18rem; font-weight: 600; margin: 0.25rem 0 0.15rem; }
+  .entry .org{ color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 0.6rem; }
+  .entry ul{ margin: 0.5rem 0 0; padding-left: 1.15rem; }
+  .entry li{ margin-bottom: 0.35rem; max-width: 58ch; }
+  .entry p.detail{ margin: 0.5rem 0 0; max-width: 58ch; color: var(--ink); }
+
+  /* ---------- publications ---------- */
+  .pub{
+    background: var(--paper-card); border: 1px solid var(--line); border-radius: 4px;
+    padding: 1.2rem 1.4rem; margin-bottom: 1rem;
+  }
+  .pub:last-child{ margin-bottom: 0; }
+  .pub-top{ display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 0.4rem; }
+  .pub-year{ font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-faint); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .pub-title{ font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; margin: 0 0 0.3rem; text-wrap: balance; }
+  .pub-authors{ font-size: 0.92rem; color: var(--ink-soft); margin-bottom: 0.35rem; }
+  .pub-authors strong{ color: var(--ink); font-weight: 600; }
+  .pub-journal{ font-style: italic; color: var(--ink-soft); font-size: 0.92rem; }
+  .pub-doi{ font-family: var(--font-mono); font-size: 0.78rem; margin-top: 0.5rem; display: inline-block; }
+
+  /* ---------- skills ---------- */
+  .panel-group{ margin-bottom: 1.6rem; }
+  .panel-group:last-child{ margin-bottom: 0; }
+  .panel-label{ font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.7rem; }
+  .chips{ display: flex; flex-wrap: wrap; gap: 0.55rem; }
+  .chip{
+    font-family: var(--font-body); font-size: 0.87rem; color: var(--ink);
+    background: var(--paper-alt); border: 1px solid var(--line);
+    padding: 0.4rem 0.8rem; border-radius: 999px;
+  }
+
+  /* ---------- lists ---------- */
+  ul.plain{ list-style: none; margin: 0; padding: 0; }
+  ul.plain li{
+    padding: 0.7rem 0; border-bottom: 1px dashed var(--line);
+    display: flex; justify-content: space-between; gap: 1.5rem; align-items: baseline;
+  }
+  ul.plain li:last-child{ border-bottom: none; }
+  ul.plain li .what{ max-width: 52ch; }
+  ul.plain li .when{ font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-faint); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+  /* ---------- footer ---------- */
+  footer{ padding: var(--space-4) 0 var(--space-5); border-top: 1px solid var(--line); }
+  footer .wrap{ display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.2rem; align-items: center; }
+  footer .sig{ font-family: var(--font-display); font-style: italic; color: var(--ink-soft); }
+  footer .foot-links a{ font-family: var(--font-mono); font-size: 0.8rem; text-decoration: none; color: var(--ink-soft); margin-left: 1.2rem; }
+  footer .foot-links a:hover{ color: var(--accent-ink); }
+
+  @media (max-width: 560px){
+    .hero-meta{ font-size: 0.76rem; }
+    ul.plain li{ flex-direction: column; gap: 0.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a class="mark" href="#top">S. T. MEKA</a>
+    <div class="links">
+      <a href="#research">Research</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div id="top"></div>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Ph.D. Candidate · Cancer Biology</p>
+    <h1 class="name">Sai Teja Meka</h1>
+    <p class="role">From preclinical pharmacology to translational cancer biology</p>
+    <p class="thesis">I study disease mechanisms and therapeutic response in vivo — trained in preclinical infectious-disease and neuropharmacology models, now pursuing doctoral research in the Dodd Lab at the University of Iowa.</p>
+    <div class="hero-meta">
+      <span>The Dodd Lab, Carver College of Medicine</span>
+      <span>University of Iowa</span>
+      <span>Iowa City, IA</span>
+    </div>
+    <div class="hero-cta">
+      <a class="btn primary" href="https://www.linkedin.com/in/sai-teja-meka" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      <a class="btn ghost" href="#publications">Read the publications</a>
+    </div>
+
+    <svg class="pk-curve" viewBox="0 0 620 180" role="img" aria-label="Illustrative concentration-time curve">
+      <path class="axis" d="M40 20 L40 150 L600 150" />
+      <path class="curve" d="M40 150 C 90 150, 100 40, 150 32 C 260 18, 320 60, 400 95 C 470 122, 520 138, 600 145" />
+      <circle cx="150" cy="32" r="4"></circle>
+    </svg>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="research" class="first">
+    <h2 class="section-title">Research focus</h2>
+    <p class="lede">My work sits at the interface of pharmacology and disease biology: developing and validating in vivo models, running pharmacokinetic and pharmacodynamic studies, and translating bench findings toward therapeutic relevance. That arc runs from infectious-disease and neurodegeneration models in Bangalore to my current doctoral work in the Cancer Biology sub-program of Iowa's Biomedical Sciences Program.</p>
+  </section>
+
+  <section id="experience">
+    <h2 class="section-title">Experience &amp; education</h2>
+    <div class="timeline">
+
+      <div class="entry">
+        <div class="when">Jun 2026 — Present</div>
+        <h3>Ph.D. Candidate, The Dodd Lab</h3>
+        <div class="org">Carver College of Medicine, University of Iowa · Iowa City, IA</div>
+      </div>
+
+      <div class="entry">
+        <div class="when">Aug 2024 — Present</div>
+        <h3>Graduate Student, Cancer Biology Sub-Program</h3>
+        <div class="org">Biomedical Sciences Program, University of Iowa</div>
+      </div>
+
+      <div class="entry">
+        <div class="when">Jul 2022 — May 2024</div>
+        <h3>Research Associate, Preclinical Drug Discovery &amp; Development</h3>
+        <div class="org">Foundation for Neglected Disease Research (FNDR) · Bangalore, India</div>
+        <ul>
+          <li>Developed and validated in vivo infection models, including intranasal <em>S. aureus</em> USA300 lung infection and intranasal <em>Acinetobacter baumannii</em> lung infection in neutropenic mice, a topical <em>S. aureus</em> wound infection model in rats, and an intraperitoneal <em>Candida albicans</em> kidney infection model in mice.</li>
+          <li>Designed and ran pharmacokinetic and pharmacodynamic studies supporting preclinical candidate evaluation.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="when">2020 — Jun 2022</div>
+        <h3>Master of Pharmacy — Pharmacology</h3>
+        <div class="org">Manipal College of Pharmaceutical Sciences, MAHE · CGPA 8.52/10</div>
+        <p class="detail">Thesis: effect of NMJ-2 &amp; NMJ-3, cinnamyl sulfonamide hydroxamate HDAC-inhibitor derivatives, in the MPTP rat model of Parkinson's disease. Industrial project on Poweromin X Ten, a marketed polyherbal formulation, combining in vivo pharmacology with network pharmacology analysis.</p>
+      </div>
+
+      <div class="entry">
+        <div class="when">Nov 2019</div>
+        <h3>Sakura Science Exchange Program</h3>
+        <div class="org">Toyama, Japan — merit-based research &amp; cultural exchange</div>
+      </div>
+
+      <div class="entry">
+        <div class="when">2016 — Sep 2020</div>
+        <h3>Bachelor of Pharmacy</h3>
+        <div class="org">Acharya Nagarjuna University College of Pharmaceutical Sciences · CGPA 9.29/10</div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="publications">
+    <h2 class="section-title">Publications</h2>
+
+    <div class="pub">
+      <div class="pub-top"><span class="pub-year">2023</span></div>
+      <p class="pub-title">Novel HDAC inhibitors provide neuroprotection in MPTP-induced Parkinson's disease model of rats</p>
+      <p class="pub-authors"><strong>Meka, S. T.</strong>, Bojja, S. L., Kumar, G., Birangal, S. R., &amp; Rao, C. M.</p>
+      <p class="pub-journal">European Journal of Pharmacology, 176067</p>
+      <a class="pub-doi" href="https://doi.org/10.1016/j.ejphar.2023.176067" target="_blank" rel="noopener">doi.org/10.1016/j.ejphar.2023.176067</a>
+    </div>
+
+    <div class="pub">
+      <div class="pub-top"><span class="pub-year">2024</span></div>
+      <p class="pub-title">Poweromin X Ten, a polyherbal formulation, improves male sexual function: in vivo and network pharmacology study</p>
+      <p class="pub-authors">Bojja, S. L., Kolathur, K. K., Chaudhari, B. B., Hari, G., Byregowda, B. H., <strong>Meka, S. T.</strong>, Austin, A., &amp; Rao, C. M.</p>
+      <p class="pub-journal">F1000Research, 13, p.260</p>
+      <a class="pub-doi" href="https://doi.org/10.12688/f1000research.145889.2" target="_blank" rel="noopener">doi.org/10.12688/f1000research.145889.2</a>
+    </div>
+
+    <div class="pub">
+      <div class="pub-top"><span class="pub-year">2023</span></div>
+      <p class="pub-title">Mechanosynthesis of stable salt hydrates of allopurinol with enhanced dissolution, diffusion, and pharmacokinetics</p>
+      <p class="pub-authors">Varsa S, R. B., Pandey, N., Ghosh, A., Srivastava, A., Puram, P. K., <strong>Meka, S. T.</strong>, et al., &amp; Sanphui, P.</p>
+      <p class="pub-journal">ACS Omega</p>
+      <a class="pub-doi" href="https://doi.org/10.1021/acsomega.3c05263" target="_blank" rel="noopener">doi.org/10.1021/acsomega.3c05263</a>
+    </div>
+
+    <div class="pub">
+      <div class="pub-top"><span class="pub-year">2022</span></div>
+      <p class="pub-title">Dehydrozingerone promotes healing of diabetic foot ulcers: a molecular insight</p>
+      <p class="pub-authors">Begum, F., Manandhar, S., Kumar, G., Keni, R., Sankhe, R., Gurram, P. C., Beegum, F., <strong>Teja, M. S.</strong>, Nandakumar, K., &amp; Shenoy, R. R.</p>
+      <p class="pub-journal">Journal of Cell Communication and Signaling, 17(3), 673–688</p>
+      <a class="pub-doi" href="https://doi.org/10.1007/s12079-022-00703-0" target="_blank" rel="noopener">doi.org/10.1007/s12079-022-00703-0</a>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 class="section-title">Techniques &amp; skills</h2>
+
+    <div class="panel-group">
+      <div class="panel-label">In vivo &amp; preclinical</div>
+      <div class="chips">
+        <span class="chip">Preclinical study design</span>
+        <span class="chip">BSL-3 (M. tuberculosis, SARS-CoV-2)</span>
+        <span class="chip">Stereotactic surgery (Neurostar.de)</span>
+        <span class="chip">IV / SC / IP dosing</span>
+        <span class="chip">Oral, intranasal, inhalational, intratracheal dosing</span>
+        <span class="chip">Retro-orbital &amp; dorsal pedal blood withdrawal</span>
+        <span class="chip">Organ isolation</span>
+      </div>
+    </div>
+
+    <div class="panel-group">
+      <div class="panel-label">Behavioral &amp; functional assays</div>
+      <div class="chips">
+        <span class="chip">Open field test</span>
+        <span class="chip">Novel object recognition</span>
+        <span class="chip">Rotarod</span>
+        <span class="chip">Gait analysis</span>
+        <span class="chip">Catalepsy</span>
+        <span class="chip">Morris water maze</span>
+      </div>
+    </div>
+
+    <div class="panel-group">
+      <div class="panel-label">Bioanalytical</div>
+      <div class="chips">
+        <span class="chip">ELISA</span>
+        <span class="chip">Western blot</span>
+        <span class="chip">Biochemical estimations</span>
+        <span class="chip">PK / PD analysis</span>
+      </div>
+    </div>
+
+    <div class="panel-group">
+      <div class="panel-label">Languages</div>
+      <div class="chips">
+        <span class="chip">English — fluent</span>
+        <span class="chip">Telugu — fluent</span>
+        <span class="chip">Hindi — fluent</span>
+        <span class="chip">Kannada — conversant</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="presentations">
+    <h2 class="section-title">Presentations &amp; certifications</h2>
+    <ul class="plain">
+      <li><span class="what">Poster, 52nd Annual Conference of the Indian Pharmacological Society (IPSCON), JSS College of Pharmacy, Mysuru</span><span class="when">Feb 2023</span></li>
+      <li><span class="what">International Conference on Recent Advancements on TB and HIV Research — FNDR &amp; The Ohio State University</span><span class="when">Jan 2023</span></li>
+      <li><span class="what">Computational Tools for Pharmaceutical Development — AICTE &amp; Manipal College of Pharmaceutical Sciences</span><span class="when">Jul 2021</span></li>
+      <li><span class="what">Rational Computational Drug Design Approaches — Manipal-Schrödinger Centre for Molecular Simulations</span><span class="when">Jan 2021</span></li>
+      <li><span class="what">Poster, "Artificial Intelligence in Pharmaceutical Industry" — UGC &amp; Acharya Nagarjuna University</span><span class="when">Feb 2020</span></li>
+      <li><span class="what">3rd place, essay competition on vaccine development — ISPOR Manipal Student Chapter</span><span class="when">Feb 2021</span></li>
+      <li><span class="what">What is Data Science — IBM, Coursera</span><span class="when">—</span></li>
+      <li><span class="what">COVID-19 Contact Tracing — Johns Hopkins University, Coursera</span><span class="when">—</span></li>
+    </ul>
+  </section>
+
+  <section id="leadership">
+    <h2 class="section-title">Leadership &amp; service</h2>
+    <ul class="plain">
+      <li><span class="what">Placement coordinator, Master's program — helped secure placements with top organizations</span><span class="when">2020–22</span></li>
+      <li><span class="what">Class representative, Master's &amp; Bachelor's programs</span><span class="when">4 yrs</span></li>
+      <li><span class="what">Treasurer, Sakura Science Exchange Program cohort</span><span class="when">2019</span></li>
+      <li><span class="what">Volunteer, National Service Scheme — rural hygiene &amp; tropical disease awareness</span><span class="when">—</span></li>
+      <li><span class="what">Fundraising for flood relief, Andhra Pradesh</span><span class="when">2008</span></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <p class="sig">Thanks for reading.</p>
+    <div class="foot-links">
+      <a href="https://www.linkedin.com/in/sai-teja-meka" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#top">Back to top</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
