@@ -186,6 +186,15 @@
   /* ---------- sections ---------- */
   section{ padding: var(--space-4) 0; border-top: 1px solid var(--line); }
   section.first{ border-top: none; padding-top: 0; }
+
+  .js .reveal{
+    opacity: 0; transform: translateY(18px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .js .reveal.is-visible{ opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce){
+    .js .reveal{ opacity: 1; transform: none; transition: none; }
+  }
   h2.section-title{
     font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.08em;
     text-transform: uppercase; color: var(--ink-faint); margin: 0 0 1.8rem;
@@ -275,6 +284,7 @@
 </style>
 </head>
 <body>
+<script>document.documentElement.classList.add('js');</script>
 
 <nav class="top">
   <div class="wrap">
@@ -315,12 +325,12 @@
 
 <main class="wrap">
 
-  <section id="research" class="first">
+  <section id="research" class="first reveal">
     <h2 class="section-title">Research focus</h2>
     <p class="lede">My work sits at the interface of pharmacology and disease biology: developing and validating in vivo models, running pharmacokinetic and pharmacodynamic studies, and translating bench findings toward therapeutic relevance. That arc runs from infectious-disease and neurodegeneration models in Bangalore to my current doctoral work in the Cancer Biology sub-program of Iowa's Biomedical Sciences Program.</p>
   </section>
 
-  <section id="experience">
+  <section id="experience" class="reveal">
     <h2 class="section-title">Experience &amp; education</h2>
     <div class="timeline">
 
@@ -368,7 +378,7 @@
     </div>
   </section>
 
-  <section id="publications">
+  <section id="publications" class="reveal">
     <h2 class="section-title">Publications</h2>
 
     <div class="pub">
@@ -404,7 +414,7 @@
     </div>
   </section>
 
-  <section id="skills">
+  <section id="skills" class="reveal">
     <h2 class="section-title">Techniques &amp; skills</h2>
 
     <div class="panel-group">
@@ -453,7 +463,7 @@
     </div>
   </section>
 
-  <section id="presentations">
+  <section id="presentations" class="reveal">
     <h2 class="section-title">Presentations &amp; certifications</h2>
     <ul class="plain">
       <li><span class="what">Poster, 52nd Annual Conference of the Indian Pharmacological Society (IPSCON), JSS College of Pharmacy, Mysuru</span><span class="when">Feb 2023</span></li>
@@ -467,7 +477,7 @@
     </ul>
   </section>
 
-  <section id="leadership">
+  <section id="leadership" class="reveal">
     <h2 class="section-title">Leadership &amp; service</h2>
     <ul class="plain">
       <li><span class="what">Placement coordinator, Master's program — helped secure placements with top organizations</span><span class="when">2020–22</span></li>
@@ -489,6 +499,22 @@
     </div>
   </div>
 </footer>
+
+<script>
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-visible'); });
+  }
+</script>
 
 </body>
 </html>
