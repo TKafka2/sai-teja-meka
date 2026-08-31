@@ -1,0 +1,1 @@
+Upload conference/presentation photos into this folder (drag-and-drop via GitHub's "Add file → Upload files"), then add a matching `<figure>` block in `index.html` — see the comment above the Gallery section for the exact steps and template.

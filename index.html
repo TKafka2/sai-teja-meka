@@ -234,6 +234,27 @@
     padding: 0.4rem 0.8rem; border-radius: 999px;
   }
 
+  /* ---------- gallery ---------- */
+  .gallery-grid{
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.1rem;
+  }
+  figure.photo{ margin: 0; }
+  figure.photo img{
+    width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+    border-radius: 4px; border: 1px solid var(--line); display: block;
+    background: var(--paper-alt);
+  }
+  figure.photo figcaption{
+    margin-top: 0.55rem; font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-soft);
+  }
+  .gallery-empty{
+    grid-column: 1 / -1;
+    border: 1px dashed var(--line); border-radius: 4px;
+    padding: 2.2rem 1.5rem; text-align: center;
+    font-family: var(--font-mono); font-size: 0.8rem; color: var(--ink-faint);
+  }
+
   /* ---------- lists ---------- */
   ul.plain{ list-style: none; margin: 0; padding: 0; }
   ul.plain li{
@@ -454,6 +475,32 @@
       <li><span class="what">What is Data Science — IBM, Coursera</span><span class="when">—</span></li>
       <li><span class="what">COVID-19 Contact Tracing — Johns Hopkins University, Coursera</span><span class="when">—</span></li>
     </ul>
+  </section>
+
+  <section id="gallery" class="reveal">
+    <h2 class="section-title">Gallery</h2>
+
+    <!--
+      HOW TO ADD A PHOTO (no coding needed, all on github.com):
+      1. Go to the repo, open the "images/gallery" folder.
+      2. Click "Add file" -> "Upload files", drag your photo in, commit.
+      3. Come back to this file (index.html), click the pencil/edit icon.
+      4. Copy one <figure class="photo">...</figure> block below (or this
+         commented example) and paste it inside <div class="gallery-grid">,
+         then update the src filename and the caption text. Commit.
+      5. Once you've added your first real photo, delete the
+         <div class="gallery-empty">...</div> placeholder below.
+
+      Example:
+      <figure class="photo">
+        <img src="images/gallery/ipscon-2023.jpg" alt="Poster session at IPSCON 2023, JSS College of Pharmacy, Mysuru" loading="lazy">
+        <figcaption>IPSCON 2023 — Mysuru</figcaption>
+      </figure>
+    -->
+
+    <div class="gallery-grid">
+      <div class="gallery-empty">Photos from talks, posters, and conferences go here — see the comment in the source for how to add one.</div>
+    </div>
   </section>
 
   <section id="leadership" class="reveal">
