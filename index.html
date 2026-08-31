@@ -168,21 +168,6 @@
   .btn.ghost{ border-color: var(--line); color: var(--ink); }
   .btn.ghost:hover{ border-color: var(--accent); color: var(--accent-ink); }
 
-  .pk-curve{ width: 100%; max-width: 620px; height: auto; margin-top: 2.4rem; display: block; }
-  .pk-curve path.curve{
-    fill: none; stroke: var(--accent); stroke-width: 2; opacity: 0.75;
-    stroke-dasharray: 900; stroke-dashoffset: 900;
-    animation: draw 2.2s ease-out 0.2s forwards;
-  }
-  .pk-curve path.axis{ stroke: var(--line); stroke-width: 1; fill: none; }
-  .pk-curve circle{ fill: var(--accent); opacity: 0; animation: fadeIn 0.6s ease-out 2.1s forwards; }
-  @keyframes draw{ to{ stroke-dashoffset: 0; } }
-  @keyframes fadeIn{ to{ opacity: 1; } }
-  @media (prefers-reduced-motion: reduce){
-    .pk-curve path.curve{ animation: none; stroke-dashoffset: 0; }
-    .pk-curve circle{ animation: none; opacity: 1; }
-  }
-
   /* ---------- sections ---------- */
   section{ padding: var(--space-4) 0; border-top: 1px solid var(--line); }
   section.first{ border-top: none; padding-top: 0; }
@@ -314,12 +299,6 @@
       <a class="btn primary" href="https://www.linkedin.com/in/sai-teja-meka" target="_blank" rel="noopener">Connect on LinkedIn</a>
       <a class="btn ghost" href="#publications">Read the publications</a>
     </div>
-
-    <svg class="pk-curve" viewBox="0 0 620 180" role="img" aria-label="Illustrative concentration-time curve">
-      <path class="axis" d="M40 20 L40 150 L600 150" />
-      <path class="curve" d="M40 150 C 90 150, 100 40, 150 32 C 260 18, 320 60, 400 95 C 470 122, 520 138, 600 145" />
-      <circle cx="150" cy="32" r="4"></circle>
-    </svg>
   </div>
 </header>
 
